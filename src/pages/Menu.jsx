@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
@@ -112,7 +112,6 @@ const allMenuItems = {
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [searchQuery, setSearchQuery] = useState("");
-  const [cartItems, setCartItems] = useState([]);
 
   const getFilteredItems = () => {
     let items = [];
@@ -146,14 +145,6 @@ const Menu = () => {
     return items;
   };
 
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-  };
-
-  const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0);
-  };
-
   const tandooriItems = getFilteredItems().filter((item) =>
     allMenuItems.tandoori.some((tandoori) => tandoori.name === item.name)
   );
@@ -174,7 +165,7 @@ const Menu = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8">
         {/* Search Bar */}
         <div className="flex items-center justify-center mb-8">
           <div className="relative w-full max-w-2xl">
@@ -222,7 +213,7 @@ const Menu = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {tandooriItems.map((item, index) => (
-                <Card key={index} {...item} onAdd={() => addToCart(item)} />
+                <Card key={index} {...item} />
               ))}
             </div>
           </section>
@@ -244,7 +235,7 @@ const Menu = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {gravyItems.map((item, index) => (
-                <Card key={index} {...item} onAdd={() => addToCart(item)} />
+                <Card key={index} {...item} />
               ))}
             </div>
           </section>
@@ -266,7 +257,7 @@ const Menu = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {rollItems.map((item, index) => (
-                <Card key={index} {...item} onAdd={() => addToCart(item)} />
+                <Card key={index} {...item} />
               ))}
             </div>
           </section>
@@ -288,7 +279,7 @@ const Menu = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sideItems.map((item, index) => (
-                <Card key={index} {...item} onAdd={() => addToCart(item)} />
+                <Card key={index} {...item} />
               ))}
             </div>
           </section>
@@ -310,26 +301,12 @@ const Menu = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {beverageItems.map((item, index) => (
-                <Card key={index} {...item} onAdd={() => addToCart(item)} />
+                <Card key={index} {...item} />
               ))}
             </div>
           </section>
         )}
       </div>
-
-      {/* Floating Cart Button */}
-      {cartItems.length > 0 && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <button className="bg-orange-600 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 hover:bg-orange-700 transition">
-            <div className="flex flex-col items-start">
-              <span className="text-xs font-medium">{cartItems.length} ITEMS</span>
-              <span className="text-lg font-bold">View Tray</span>
-            </div>
-            <div className="text-xl font-bold">₹{getTotalPrice()}</div>
-            <ArrowRight className="size-5" />
-          </button>
-        </div>
-      )}
 
       <Footer />
     </div>

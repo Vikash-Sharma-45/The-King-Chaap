@@ -1,6 +1,6 @@
-import { Star, Plus } from "lucide-react";
+import { Star } from "lucide-react";
 
-const Card = ({ image, name, price, description, rating, reviews, badge, onAdd }) => {
+const Card = ({ image, name, price, description, rating, reviews, badge }) => {
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 ease-in-out flex flex-col">
       <div className="relative">
@@ -21,25 +21,12 @@ const Card = ({ image, name, price, description, rating, reviews, badge, onAdd }
       <div className="p-4 flex flex-col flex-1">
         <h3 className="font-bold text-lg text-gray-900">{name}</h3>
         <p className="text-sm text-gray-500 mt-1 line-clamp-2 flex-1">{description}</p>
-        <div className="flex items-center justify-between mt-4">
+        <div className="flex items-center justify-start mt-4">
           <div className="flex items-center gap-1">
             <Star className="size-4 text-yellow-500 fill-yellow-500" />
             <span className="text-sm font-semibold text-gray-800">{rating}</span>
             <span className="text-sm text-gray-400">({reviews})</span>
           </div>
-          {onAdd ? (
-            <button 
-              onClick={onAdd}
-              className="bg-orange-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-orange-700 transition"
-            >
-              <Plus className="size-4" />
-              Add
-            </button>
-          ) : (
-            <button className="bg-orange-600 text-white p-2 rounded-full hover:bg-orange-700 transition">
-              <Plus className="size-4" />
-            </button>
-          )}
         </div>
       </div>
     </div>
