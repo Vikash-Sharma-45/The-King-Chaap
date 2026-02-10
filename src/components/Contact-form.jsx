@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Send, Loader2 } from "lucide-react"
 
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,29 +16,32 @@ export default function ContactForm() {
     setStatus("loading")
 
     try {
-      // Simulate API call - in production, replace with actual API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      
-      // For demo purposes, always show success
-      // In production, uncomment the actual API call:
-      /*
-      const res = await fetch("/api/contact", {
+      const data = new FormData()
+      data.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY)
+      data.append("name", formData.name)
+      data.append("email", formData.email)
+      data.append("subject", formData.subject)
+      data.append("message", formData.message)
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: data,
       })
 
-      if (res.ok) {
+      const result = await res.json()
+
+      if (result.success) {
         setStatus("success")
-        setFormData({ name: "", email: "", subject: "", message: "" })
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
       } else {
         setStatus("error")
       }
-      */
-      
-      setStatus("success")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-    } catch {
+    } catch (error) {
       setStatus("error")
     }
   }
@@ -46,81 +50,66 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="name"
-            className="mb-1.5 block text-sm font-medium text-gray-900"
-          >
+          <label className="mb-1.5 block text-sm font-medium text-gray-900">
             Name
           </label>
           <input
-            id="name"
             type="text"
             required
             value={formData.name}
             onChange={(e) =>
               setFormData((d) => ({ ...d, name: e.target.value }))
             }
-            className="h-11 w-full rounded-lg border border-gray-300 bg-white px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600/30"
+            className="h-11 w-full rounded-lg border border-gray-300 bg-white px-4 text-sm"
             placeholder="Your name"
           />
         </div>
+
         <div>
-          <label
-            htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-gray-900"
-          >
+          <label className="mb-1.5 block text-sm font-medium text-gray-900">
             Email
           </label>
           <input
-            id="email"
             type="email"
             required
             value={formData.email}
             onChange={(e) =>
               setFormData((d) => ({ ...d, email: e.target.value }))
             }
-            className="h-11 w-full rounded-lg border border-gray-300 bg-white px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600/30"
+            className="h-11 w-full rounded-lg border border-gray-300 bg-white px-4 text-sm"
             placeholder="you@example.com"
           />
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="subject"
-          className="mb-1.5 block text-sm font-medium text-foreground"
-        >
+        <label className="mb-1.5 block text-sm font-medium text-gray-900">
           Subject
         </label>
         <input
-          id="subject"
           type="text"
           required
           value={formData.subject}
           onChange={(e) =>
             setFormData((d) => ({ ...d, subject: e.target.value }))
           }
-          className="h-11 w-full rounded-lg border border-border bg-secondary px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          className="h-11 w-full rounded-lg border border-gray-300 bg-white px-4 text-sm"
           placeholder="What is this about?"
         />
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="mb-1.5 block text-sm font-medium text-foreground"
-        >
+        <label className="mb-1.5 block text-sm font-medium text-gray-900">
           Message
         </label>
         <textarea
-          id="message"
           required
           rows={5}
           value={formData.message}
           onChange={(e) =>
             setFormData((d) => ({ ...d, message: e.target.value }))
           }
-          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600/30 resize-none"
+          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm resize-none"
           placeholder="Tell us how we can help you..."
         />
       </div>
@@ -128,7 +117,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
+        className="flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-6 py-3 text-sm font-semibold text-white disabled:opacity-70"
       >
         {status === "loading" ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -140,10 +129,10 @@ export default function ContactForm() {
 
       {status === "success" && (
         <p className="rounded-lg bg-green-50 p-3 text-sm font-medium text-green-700">
-          Thank you! Your message has been sent successfully. We&apos;ll get back to
-          you soon.
+          Thank you! Your message has been sent successfully.
         </p>
       )}
+
       {status === "error" && (
         <p className="rounded-lg bg-red-50 p-3 text-sm font-medium text-red-700">
           Something went wrong. Please try again later.
@@ -152,3 +141,4 @@ export default function ContactForm() {
     </form>
   )
 }
+console.log("KEY:", import.meta.env.VITE_WEB3FORMS_KEY)
