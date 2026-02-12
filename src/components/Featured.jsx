@@ -33,7 +33,7 @@ const menuItems = [
 
 const Featured = () => {
   return (
-    <section className="px-12 py-12">
+    <section className="px-12 py-12 section-fade-up section-fade-up-delay">
       <div className="flex items-center justify-between gap-6 mb-8">
         <div>
           <h1 className="text-4xl font-bold text-black">The Royal Menu</h1>

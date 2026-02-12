@@ -4,7 +4,7 @@ const Royalty = () => {
   const navigate = useNavigate();
   
   return (
-    <section className="bg-gray-100 py-12 sm:py-14 flex items-center justify-center">
+    <section className="bg-gray-100 py-12 sm:py-14 flex items-center justify-center section-fade-up section-fade-up-delay-2">
       <div className="bg-orange-600 text-white rounded-2xl w-full max-w-4xl flex flex-col items-center justify-center px-6 sm:px-10 py-10 sm:py-12 mx-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-center">Join the Royalty</h1>
         <p className="text-center mt-4 text-base sm:text-lg">

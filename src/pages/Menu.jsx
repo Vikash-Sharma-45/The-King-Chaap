@@ -162,10 +162,10 @@ const Menu = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page">
       <Header />
       
-      <div className="container mx-auto px-4 sm:px-6 py-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8 section-fade-up">
         {/* Search Bar */}
         <div className="flex items-center justify-center mb-8">
           <div className="relative w-full max-w-2xl">

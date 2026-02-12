@@ -5,6 +5,77 @@ body {
   background-color: whitesmoke;
 }
 
+/* Global page & section animations */
+.page {
+  animation: pageFadeIn 0.7s ease-out forwards;
+}
+
+.page-header {
+  animation: headerSlideDown 0.6s ease-out forwards;
+}
+
+.section-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: sectionFadeUp 0.7s ease-out forwards;
+}
+
+.section-fade-up-delay {
+  animation-delay: 0.18s;
+}
+
+.section-fade-up-delay-2 {
+  animation-delay: 0.28s;
+}
+
+.menu-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  filter: brightness(1.03);
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

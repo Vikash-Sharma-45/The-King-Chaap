@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 const Card = ({ image, name, price, description, rating, reviews, badge }) => {
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 ease-in-out flex flex-col">
+    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 ease-in-out flex flex-col menu-card">
       <div className="relative">
         <img
           src={image}

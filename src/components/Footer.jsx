@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <section className="bg-white text-gray-500 min-h-2/5 py-10 flex flex-col items-center justify-between px-4 sm:px-6">
+    <section className="bg-white text-gray-500 min-h-2/5 py-10 flex flex-col items-center justify-between px-4 sm:px-6 section-fade-up section-fade-up-delay">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8">
         <div className="flex flex-col items-start justify-between gap-2 w-full lg:w-1/4">
           <div className="flex items-center gap-2">

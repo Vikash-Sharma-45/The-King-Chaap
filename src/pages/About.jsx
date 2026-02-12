@@ -4,10 +4,10 @@ import { BadgeCheck } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page">
       <Header />
       
-      <section className="h-auto px-4 sm:px-6 lg:px-14 py-10 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+      <section className="h-auto px-4 sm:px-6 lg:px-14 py-10 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 section-fade-up">
         <div className="relative w-full lg:w-1/2 max-w-xl mb-8 lg:mb-0">
           <img
             src="/food-cart.jpg"
