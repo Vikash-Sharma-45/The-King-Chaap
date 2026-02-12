@@ -44,7 +44,7 @@ const Hero = () => {
 
       <section className="h-auto px-4 sm:px-6 lg:px-14 py-8 lg:py-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 section-fade-up section-fade-up-delay">
         <div className="relative w-full lg:w-1/2 max-w-xl">
-          <img src="/food-cart.jpg" alt="About Us" className="w-full h-full object-cover rounded-lg" />
+          <img src="/food-cart.jpeg" alt="About Us" className="w-full h-full object-cover rounded-lg" />
           <div className="bg-orange-600 text-white flex justify-center items-center rounded-[50%] absolute -bottom-4 -right-4 text-sm p-8 h-24 w-24 font-bold">
             ESTD 2012
           </div>

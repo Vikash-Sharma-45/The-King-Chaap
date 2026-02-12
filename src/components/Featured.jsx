@@ -23,7 +23,7 @@ const menuItems = [
     badge: "CHEF FAVOURITE",
   },
   {
-    image: "/chaap.jpeg",
+    image: "/tandoori-momo.webp",
     name: "Tandoori Momos",
     price: 60,
     description: "Crispy, smoky momos tossed in tandoori masala.",

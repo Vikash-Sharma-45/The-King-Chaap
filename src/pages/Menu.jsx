@@ -46,7 +46,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/masala-gravy-chaap.jpg",
+      image: "/Soya-Chaap-Masala.jpg",
       name: "Masala Chaap",
       halfPrice: 100,
       fullPrice: 200,
@@ -76,7 +76,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/tandoori-chaap.jpg",
       name: "Chatpati Chaap",
       halfPrice: 100,
       fullPrice: 200,
@@ -86,7 +86,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/LEMON-SOYA-CHAAP-img.jpg",
       name: "Lemon Chaap",
       halfPrice: 100,
       fullPrice: 200,
@@ -96,7 +96,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/crispy.webp",
       name: "Crispy Chaap",
       halfPrice: 110,
       fullPrice: 210,
@@ -116,7 +116,7 @@ const allMenuItems = {
       badge: "PREMIUM",
     },
     {
-      image: "/stuffed-paneer-chaap.jpg",
+      image: "/stuffed.webp",
       name: "Masala Stuff Chaap",
       halfPrice: 130,
       fullPrice: 250,
@@ -126,7 +126,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/stuffed-paneer-chaap.jpg",
+      image: "/malai-filled.webp",
       name: "Malai Stuff Chaap",
       halfPrice: 150,
       fullPrice: 280,
@@ -138,7 +138,7 @@ const allMenuItems = {
   ],
   paneerTikka: [
     {
-      image: "/tandoori-chaap.jpg",
+      image: "/paneer-tikka.webp",
       name: "Tandoori Paneer Tikka",
       price: 120,
       description: "Charred paneer cubes in classic tandoori masala.",
@@ -156,7 +156,7 @@ const allMenuItems = {
       badge: "MUST TRY",
     },
     {
-      image: "/achari-chaap.jpg",
+      image: "/achari-tikka.webp",
       name: "Achari Paneer Tikka",
       price: 120,
       description: "Tangy achari spices with smoky tandoor-paneer.",
@@ -165,7 +165,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/hariyali-tikka.webp",
       name: "Hariyali Paneer Tikka",
       price: 120,
       description: "Green herb marinade with pudina and dhania.",
@@ -174,7 +174,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/malai-gravy-chaap.jpg",
+      image: "/malai-paneer.webp",
       name: "Malai Paneer Tikka",
       price: 130,
       description: "Silky, rich malai marinade on soft paneer cubes.",
@@ -183,7 +183,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/rumali-roti.webp",
       name: "Rumali Roti",
       price: 10,
       description: "Light and fluffy, ideal with paneer tikkas.",
@@ -232,7 +232,7 @@ const allMenuItems = {
   ],
   chaapRoll: [
     {
-      image: "/signature-roll.jpg",
+      image: "/malai-roll.webp",
       name: "Malai Chaap Roll",
       price: 90,
       description: "Signature malai chaap rolled with salad and chutney.",
@@ -241,7 +241,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/signature-roll.jpg",
+      image: "/achari-roll.webp",
       name: "Chatpati Chaap Roll",
       price: 90,
       description: "Chatpata, spicy chaap roll packed with flavour.",
@@ -259,7 +259,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/signature-roll.jpg",
+      image: "/afghani-roll.webp",
       name: "Afghani Chaap Roll",
       price: 90,
       description: "Creamy Afghani chaap with onions and mint chutney.",
@@ -297,7 +297,7 @@ const allMenuItems = {
   ],
   momos: [
     {
-      image: "/chaap.jpeg",
+      image: "/tandoori-momo.webp",
       name: "Tandoori Momos",
       price: 60,
       description: "Smoky tandoori momos with spicy chutney.",
@@ -306,7 +306,7 @@ const allMenuItems = {
       badge: "HOT",
     },
     {
-      image: "/chaap.jpeg",
+      image: "/afghani-momo.webp",
       name: "Veg Afghani Momos",
       price: 70,
       description: "Creamy Afghani-style veg momos.",
@@ -315,7 +315,7 @@ const allMenuItems = {
       badge: null,
     },
     {
-      image: "/chaap.jpeg",
+      image: "/achari-momo.webp",
       name: "Veg Achari Momos",
       price: 60,
       description: "Tangy achari-flavoured veg momos.",
