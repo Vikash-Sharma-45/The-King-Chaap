@@ -64,9 +64,9 @@ const Footer = () => {
             <MapPin className="size-5 inline-block mr-2 text-gray-600" />
             123 Street Food Plaza, North Delhi, 11001
           </h4>
-          <a className="mt-2" href="tel:+919876643210">
+          <a className="mt-2" href="tel:+918303671626">
             <Phone className="size-5 inline-block mr-2 text-gray-600" />
-            +91 9876643210
+            +91 8303671626
           </a>
           <a className="mt-2" href="mailto:info@thekingchaap.com">
             <Mail className="size-5 inline-block mr-2 text-gray-600" />

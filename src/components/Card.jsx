@@ -1,6 +1,16 @@
 import { Star } from "lucide-react";
 
-const Card = ({ image, name, price, description, rating, reviews, badge }) => {
+const Card = ({
+  image,
+  name,
+  price,
+  halfPrice,
+  fullPrice,
+  description,
+  rating,
+  reviews,
+  badge,
+}) => {
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 ease-in-out flex flex-col menu-card">
       <div className="relative">
@@ -9,9 +19,17 @@ const Card = ({ image, name, price, description, rating, reviews, badge }) => {
           alt={name}
           className="w-full h-52 object-cover"
         />
-        <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
-          ₹{price}
-        </span>
+        {halfPrice && fullPrice ? (
+          <span className="absolute top-3 right-3 bg-black text-white text-[10px] font-semibold px-3 py-1 rounded-full text-right leading-tight">
+            Half ₹{halfPrice}
+            <br />
+            Full ₹{fullPrice}
+          </span>
+        ) : (
+          <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
+            ₹{price}
+          </span>
+        )}
         {badge && (
           <span className="absolute top-3 left-3 bg-orange-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
             {badge}

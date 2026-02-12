@@ -4,106 +4,323 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 
-const categories = ["All Items", "Tandoori", "Gravy", "Signature Rolls", "Sides", "Beverages"];
+const categories = [
+  "All Items",
+  "Chaap",
+  "Paneer Tikka",
+  "Paneer Tikka Roll",
+  "Chaap Roll",
+  "Momos",
+];
 
 const allMenuItems = {
-  tandoori: [
-    {
-      image: "/afghani-malai-chaap.jpg",
-      name: "Afghani Malai Chaap",
-      price: 240,
-      description: "Soy chunks marinated in cashew paste and cream, grilled in a...",
-      rating: "4.9",
-      reviews: "1.2k",
-      badge: "MUST TRY",
-    },
-    {
-      image: "/achari-chaap.jpg",
-      name: "Achari Chaap",
-      price: 220,
-      description: "Tangy pickling spices marinated soy protein with a fiery punch of...",
-      rating: "4.7",
-      reviews: "890",
-      badge: null,
-    },
-    {
-      image: "/stuffed-paneer-chaap.jpg",
-      name: "Stuffed Paneer Chaap",
-      price: 260,
-      description: "Grilled soy chunks with a rich paneer and spice filling, served...",
-      rating: "4.8",
-      reviews: "1.5k",
-      badge: null,
-    },
-    {
-      image: "/tandoori-chaap.jpg",
-      name: "Afgani Chaap",
-      price: 240,
-      description: "Our signature recipe. Marinated in secret Afghani spices and grilled to perfection in a...",
-      rating: "5.0",
-      reviews: "2k+",
-      badge: "BEST SELLER",
-    },
-  ],
-  gravy: [
-    {
-      image: "/masala-gravy-chaap.jpg",
-      name: "Masala Gravy Chaap",
-      price: 280,
-      description: "Soft chaap cooked in a thick, semi-dry tomato and onion grav...",
-      rating: "4.6",
-      reviews: "950",
-      badge: null,
-    },
+  chaap: [
     {
       image: "/malai-gravy-chaap.jpg",
-      name: "Malai Gravy Chaap",
-      price: 310,
-      description: "Rich and velvety white gravy made with cream, butter, and mil...",
+      name: "Malai Chaap",
+      halfPrice: 110,
+      fullPrice: 210,
+      description: "Rich, creamy classic chaap with a velvety malai marinade.",
       rating: "4.9",
-      reviews: "1.3k",
-      badge: null,
-    },
-    {
-      image: "/kings-signature-curry.jpg",
-      name: "King's Signature Curry",
-      price: 340,
-      description: "Our chef's special robust gravy with double-marinated chaap...",
-      rating: "5.0",
-      reviews: "1.8k",
-      badge: "MUST TRY",
-    },
-  ],
-  rolls: [
-    {
-      image: "/signature-roll.jpg",
-      name: "Signature Chaap Roll",
-      price: 180,
-      description: "Crispy chaap wrapped in soft roti with fresh veggies and chutney...",
-      rating: "4.8",
-      reviews: "2.1k",
+      reviews: "1.2k",
       badge: "BEST SELLER",
     },
-  ],
-  sides: [
+    {
+      image: "/afghani-malai-chaap.jpg",
+      name: "Afghani Chaap",
+      halfPrice: 110,
+      fullPrice: 210,
+      description: "Mild, buttery Afghani-style chaap with a smoky tandoor finish.",
+      rating: "4.8",
+      reviews: "980",
+      badge: "MUST TRY",
+    },
     {
       image: "/tandoori-chaap.jpg",
-      name: "Garlic Naan",
-      price: 60,
-      description: "Freshly baked naan with garlic and butter...",
+      name: "Tandoori Soya Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Classic tandoori chaap marinated in robust North Indian spices.",
       rating: "4.7",
       reviews: "1.1k",
       badge: null,
     },
-  ],
-  beverages: [
     {
-      image: "/lassi.jpg",
-      name: "Sweet Lassi",
-      price: 80,
-      description: "Creamy yogurt drink, sweet and refreshing...",
+      image: "/masala-gravy-chaap.jpg",
+      name: "Masala Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Spicy, masaledar chaap for those who love a bold kick.",
       rating: "4.6",
-      reviews: "890",
+      reviews: "870",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Pudina Hariyali Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Fresh mint and coriander marinade with a vibrant green hue.",
+      rating: "4.7",
+      reviews: "760",
+      badge: null,
+    },
+    {
+      image: "/achari-chaap.jpg",
+      name: "Achari Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Tangy pickle-spiced chaap with a chatpata flavour profile.",
+      rating: "4.6",
+      reviews: "690",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Chatpati Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Street-style spicy chaap with chatpata masala.",
+      rating: "4.5",
+      reviews: "640",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Lemon Chaap",
+      halfPrice: 100,
+      fullPrice: 200,
+      description: "Zesty lemon-and-herb marinated chaap, light and refreshing.",
+      rating: "4.5",
+      reviews: "610",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Crispy Chaap",
+      halfPrice: 110,
+      fullPrice: 210,
+      description: "Crisp outside, juicy inside – perfect for texture lovers.",
+      rating: "4.8",
+      reviews: "1.0k",
+      badge: null,
+    },
+    {
+      image: "/stuffed-paneer-chaap.jpg",
+      name: "Afghani Stuff Chaap",
+      halfPrice: 140,
+      fullPrice: 270,
+      description: "Stuffed Afghani-style chaap loaded with rich creamy filling.",
+      rating: "4.9",
+      reviews: "740",
+      badge: "PREMIUM",
+    },
+    {
+      image: "/stuffed-paneer-chaap.jpg",
+      name: "Masala Stuff Chaap",
+      halfPrice: 130,
+      fullPrice: 250,
+      description: "Spicy stuffed chaap for serious masala cravings.",
+      rating: "4.7",
+      reviews: "680",
+      badge: null,
+    },
+    {
+      image: "/stuffed-paneer-chaap.jpg",
+      name: "Malai Stuff Chaap",
+      halfPrice: 150,
+      fullPrice: 280,
+      description: "Indulgent stuffed chaap in a rich, creamy malai base.",
+      rating: "5.0",
+      reviews: "820",
+      badge: "CHEF SPECIAL",
+    },
+  ],
+  paneerTikka: [
+    {
+      image: "/tandoori-chaap.jpg",
+      name: "Tandoori Paneer Tikka",
+      price: 120,
+      description: "Charred paneer cubes in classic tandoori masala.",
+      rating: "4.8",
+      reviews: "1.3k",
+      badge: "BEST SELLER",
+    },
+    {
+      image: "/afghani-malai-chaap.jpg",
+      name: "Afghani Paneer Tikka",
+      price: 130,
+      description: "Creamy and mild Afghani-style paneer tikka.",
+      rating: "4.9",
+      reviews: "980",
+      badge: "MUST TRY",
+    },
+    {
+      image: "/achari-chaap.jpg",
+      name: "Achari Paneer Tikka",
+      price: 120,
+      description: "Tangy achari spices with smoky tandoor-paneer.",
+      rating: "4.7",
+      reviews: "720",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Hariyali Paneer Tikka",
+      price: 120,
+      description: "Green herb marinade with pudina and dhania.",
+      rating: "4.6",
+      reviews: "650",
+      badge: null,
+    },
+    {
+      image: "/malai-gravy-chaap.jpg",
+      name: "Malai Paneer Tikka",
+      price: 130,
+      description: "Silky, rich malai marinade on soft paneer cubes.",
+      rating: "4.9",
+      reviews: "1.0k",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Rumali Roti",
+      price: 10,
+      description: "Light and fluffy, ideal with paneer tikkas.",
+      rating: "4.6",
+      reviews: "900",
+      badge: null,
+    },
+  ],
+  paneerRoll: [
+    {
+      image: "/signature-roll.jpg",
+      name: "Tandoori Paneer Tikka Roll",
+      price: 90,
+      description: "Tandoori paneer tikka wrapped in soft rumali roti.",
+      rating: "4.8",
+      reviews: "1.1k",
+      badge: "BEST SELLER",
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Achari Paneer Tikka Roll",
+      price: 90,
+      description: "Zesty achari paneer tikka rolled with onions and chutney.",
+      rating: "4.7",
+      reviews: "760",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Hariyali Paneer Tikka Roll",
+      price: 90,
+      description: "Fresh green herb paneer tikka roll.",
+      rating: "4.6",
+      reviews: "640",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Malai Paneer Tikka Roll",
+      price: 100,
+      description: "Creamy malai paneer tikka wrapped for on-the-go indulgence.",
+      rating: "4.9",
+      reviews: "830",
+      badge: "PREMIUM",
+    },
+  ],
+  chaapRoll: [
+    {
+      image: "/signature-roll.jpg",
+      name: "Malai Chaap Roll",
+      price: 90,
+      description: "Signature malai chaap rolled with salad and chutney.",
+      rating: "4.8",
+      reviews: "900",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Chatpati Chaap Roll",
+      price: 90,
+      description: "Chatpata, spicy chaap roll packed with flavour.",
+      rating: "4.7",
+      reviews: "780",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Pudina Hariyali Roll",
+      price: 80,
+      description: "Refreshing pudina-hariyali chaap in a soft roll.",
+      rating: "4.6",
+      reviews: "640",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Afghani Chaap Roll",
+      price: 90,
+      description: "Creamy Afghani chaap with onions and mint chutney.",
+      rating: "4.8",
+      reviews: "720",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Masala Chaap Roll",
+      price: 80,
+      description: "Spicy masala chaap wrapped in a soft roll.",
+      rating: "4.5",
+      reviews: "610",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Lemon Chaap Roll",
+      price: 90,
+      description: "Zesty lemon chaap roll with fresh salad.",
+      rating: "4.5",
+      reviews: "580",
+      badge: null,
+    },
+    {
+      image: "/signature-roll.jpg",
+      name: "Crispy Chaap Roll",
+      price: 80,
+      description: "Crunchy chaap roll for texture and flavour.",
+      rating: "4.6",
+      reviews: "650",
+      badge: null,
+    },
+  ],
+  momos: [
+    {
+      image: "/chaap.jpeg",
+      name: "Tandoori Momos",
+      price: 60,
+      description: "Smoky tandoori momos with spicy chutney.",
+      rating: "4.7",
+      reviews: "830",
+      badge: "HOT",
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Veg Afghani Momos",
+      price: 70,
+      description: "Creamy Afghani-style veg momos.",
+      rating: "4.8",
+      reviews: "910",
+      badge: null,
+    },
+    {
+      image: "/chaap.jpeg",
+      name: "Veg Achari Momos",
+      price: 60,
+      description: "Tangy achari-flavoured veg momos.",
+      rating: "4.6",
+      reviews: "720",
       badge: null,
     },
   ],
@@ -118,22 +335,22 @@ const Menu = () => {
     
     if (selectedCategory === "All Items") {
       items = [
-        ...allMenuItems.tandoori,
-        ...allMenuItems.gravy,
-        ...allMenuItems.rolls,
-        ...allMenuItems.sides,
-        ...allMenuItems.beverages,
+        ...allMenuItems.chaap,
+        ...allMenuItems.paneerTikka,
+        ...allMenuItems.paneerRoll,
+        ...allMenuItems.chaapRoll,
+        ...allMenuItems.momos,
       ];
-    } else if (selectedCategory === "Tandoori") {
-      items = allMenuItems.tandoori;
-    } else if (selectedCategory === "Gravy") {
-      items = allMenuItems.gravy;
-    } else if (selectedCategory === "Signature Rolls") {
-      items = allMenuItems.rolls;
-    } else if (selectedCategory === "Sides") {
-      items = allMenuItems.sides;
-    } else if (selectedCategory === "Beverages") {
-      items = allMenuItems.beverages;
+    } else if (selectedCategory === "Chaap") {
+      items = allMenuItems.chaap;
+    } else if (selectedCategory === "Paneer Tikka") {
+      items = allMenuItems.paneerTikka;
+    } else if (selectedCategory === "Paneer Tikka Roll") {
+      items = allMenuItems.paneerRoll;
+    } else if (selectedCategory === "Chaap Roll") {
+      items = allMenuItems.chaapRoll;
+    } else if (selectedCategory === "Momos") {
+      items = allMenuItems.momos;
     }
 
     if (searchQuery) {
@@ -145,20 +362,20 @@ const Menu = () => {
     return items;
   };
 
-  const tandooriItems = getFilteredItems().filter((item) =>
-    allMenuItems.tandoori.some((tandoori) => tandoori.name === item.name)
+  const chaapItems = getFilteredItems().filter((item) =>
+    allMenuItems.chaap.some((chaap) => chaap.name === item.name)
   );
-  const gravyItems = getFilteredItems().filter((item) =>
-    allMenuItems.gravy.some((gravy) => gravy.name === item.name)
+  const paneerTikkaItems = getFilteredItems().filter((item) =>
+    allMenuItems.paneerTikka.some((paneer) => paneer.name === item.name)
   );
-  const rollItems = getFilteredItems().filter((item) =>
-    allMenuItems.rolls.some((roll) => roll.name === item.name)
+  const paneerRollItems = getFilteredItems().filter((item) =>
+    allMenuItems.paneerRoll.some((roll) => roll.name === item.name)
   );
-  const sideItems = getFilteredItems().filter((item) =>
-    allMenuItems.sides.some((side) => side.name === item.name)
+  const chaapRollItems = getFilteredItems().filter((item) =>
+    allMenuItems.chaapRoll.some((roll) => roll.name === item.name)
   );
-  const beverageItems = getFilteredItems().filter((item) =>
-    allMenuItems.beverages.some((beverage) => beverage.name === item.name)
+  const momoItems = getFilteredItems().filter((item) =>
+    allMenuItems.momos.some((momo) => momo.name === item.name)
   );
 
   return (
@@ -197,110 +414,110 @@ const Menu = () => {
           ))}
         </div>
 
-        {/* Tandoori Specialities Section */}
-        {tandooriItems.length > 0 && (
+        {/* Chaap Section */}
+        {chaapItems.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-12 bg-orange-600"></div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  The Tandoori Specialities
+                  Chaap
                 </h2>
               </div>
               <span className="text-gray-600 font-medium">
-                {tandooriItems.length} Items
+                {chaapItems.length} Items
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {tandooriItems.map((item, index) => (
+              {chaapItems.map((item, index) => (
                 <Card key={index} {...item} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Gravy Delights Section */}
-        {gravyItems.length > 0 && (
+        {/* Paneer Tikka Section */}
+        {paneerTikkaItems.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-12 bg-orange-600"></div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  Gravy Delights
+                  Paneer Tikka
                 </h2>
               </div>
               <span className="text-gray-600 font-medium">
-                {gravyItems.length} Items
+                {paneerTikkaItems.length} Items
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {gravyItems.map((item, index) => (
+              {paneerTikkaItems.map((item, index) => (
                 <Card key={index} {...item} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Signature Rolls Section */}
-        {rollItems.length > 0 && (
+        {/* Paneer Tikka Roll Section */}
+        {paneerRollItems.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-12 bg-orange-600"></div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  Signature Rolls
+                  Paneer Tikka Roll
                 </h2>
               </div>
               <span className="text-gray-600 font-medium">
-                {rollItems.length} Items
+                {paneerRollItems.length} Items
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rollItems.map((item, index) => (
+              {paneerRollItems.map((item, index) => (
                 <Card key={index} {...item} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Sides Section */}
-        {sideItems.length > 0 && (
+        {/* Chaap Roll Section */}
+        {chaapRollItems.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-12 bg-orange-600"></div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  Sides
+                  Chaap Roll
                 </h2>
               </div>
               <span className="text-gray-600 font-medium">
-                {sideItems.length} Items
+                {chaapRollItems.length} Items
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sideItems.map((item, index) => (
+              {chaapRollItems.map((item, index) => (
                 <Card key={index} {...item} />
               ))}
             </div>
           </section>
         )}
 
-        {/* Beverages Section */}
-        {beverageItems.length > 0 && (
+        {/* Momos Section */}
+        {momoItems.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-12 bg-orange-600"></div>
                 <h2 className="text-3xl font-bold text-gray-900">
-                  Beverages
+                  Momos
                 </h2>
               </div>
               <span className="text-gray-600 font-medium">
-                {beverageItems.length} Items
+                {momoItems.length} Items
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {beverageItems.map((item, index) => (
+              {momoItems.map((item, index) => (
                 <Card key={index} {...item} />
               ))}
             </div>
