@@ -10,7 +10,7 @@ const App = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), 2600);
+    const timer = setTimeout(() => setShowIntro(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -18,24 +18,66 @@ const App = () => {
     <>
       {showIntro && (
         <div className="intro-overlay">
-          <div className="intro-glow" />
+          {/* Background layers */}
+          <div className="intro-bg-layer" />
+          <div className="intro-grain" />
+
+          {/* Cinematic letterbox bars */}
+          <div className="intro-letterbox-top" />
+          <div className="intro-letterbox-bottom" />
+
+          {/* Central ambient glow */}
+          <div className="intro-center-glow" />
+
+          {/* Floating ember particles */}
+          <div className="intro-embers">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div key={i} className="intro-ember" />
+            ))}
+          </div>
+
+          {/* Horizontal light sweep */}
+          <div className="intro-light-sweep" />
+
+          {/* Main content */}
           <div className="intro-content">
-            <div className="intro-logo-ring">
-              <span className="intro-logo-letter">K</span>
+            {/* Logo with expanding rings */}
+            <div className="intro-logo-container">
+              <div className="intro-logo-ring-outer" />
+              <div className="intro-logo-ring-inner" />
+              <div className="intro-logo-circle">
+                <span className="intro-logo-icon">🍴</span>
+              </div>
             </div>
-            <div className="intro-text-block">
-              <p className="intro-tagline">PURE VEG • SOYA CHAAP</p>
+
+            {/* Established badge */}
+            <div className="intro-est-badge">EST. 2012 • NEW DELHI</div>
+
+            {/* Title */}
+            <div className="intro-title-block">
               <h1 className="intro-title">THE KING CHAAP</h1>
-              <p className="intro-subtitle">
-                Street-style flavour. Royal-level indulgence.
-              </p>
+              <span className="intro-title-accent">Pure Veg • Soya Chaap</span>
             </div>
-            <div className="intro-divider">
-              <span className="intro-line left" />
-              <span className="intro-dot" />
-              <span className="intro-line right" />
+
+            {/* Ornamental divider */}
+            <div className="intro-ornament">
+              <div className="intro-ornament-line" />
+              <div className="intro-ornament-diamond" />
+              <div className="intro-ornament-line right" />
             </div>
-            <p className="intro-bottom-note">Grilling your cravings...</p>
+
+            {/* Tagline */}
+            <p className="intro-tagline">
+              Street-style flavour, Royal indulgence
+            </p>
+          </div>
+
+          {/* Bottom loader */}
+          <div className="intro-loader">
+            <span className="intro-loader-text">Preparing your experience</span>
+            <div className="intro-loader-bar">
+              <div className="intro-loader-fill" />
+            </div>
           </div>
         </div>
       )}

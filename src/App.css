@@ -5,179 +5,421 @@ body {
   background-color: whitesmoke;
 }
 
-/* Intro / splash screen */
+/* ===== CINEMATIC RESTAURANT INTRO ===== */
 .intro-overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top, #1f2933 0, #020617 55%, #000 100%);
+  background: #000;
   color: white;
   overflow: hidden;
-  animation: introFadeOut 0.6s ease-in-out forwards;
-  animation-delay: 2.1s;
+  animation: introFinalExit 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 4.2s;
 }
 
-.intro-glow {
+/* Ambient background texture */
+.intro-bg-layer {
   position: absolute;
-  width: 520px;
-  height: 520px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(248, 115, 22, 0.25), transparent 60%);
-  filter: blur(2px);
-  animation: introGlowPulse 2.4s ease-in-out infinite;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(180, 60, 10, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(234, 88, 12, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(194, 65, 12, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  animation: introBgReveal 2s ease-out forwards;
 }
 
+/* Animated grain overlay */
+.intro-grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  animation: introGrainDrift 0.5s steps(2) infinite;
+  pointer-events: none;
+}
+
+/* Cinematic letterbox bars */
+.intro-letterbox-top,
+.intro-letterbox-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12%;
+  background: #000;
+  z-index: 20;
+}
+.intro-letterbox-top {
+  top: 0;
+  transform-origin: top;
+  animation: letterboxSlideIn 0.6s ease-out forwards;
+}
+.intro-letterbox-bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  animation: letterboxSlideIn 0.6s ease-out forwards;
+}
+
+/* Central glow pulse */
+.intro-center-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, rgba(234, 88, 12, 0.05) 40%, transparent 70%);
+  filter: blur(40px);
+  animation: introGlowPulse 3s ease-in-out infinite, introGlowReveal 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Ember particles */
+.intro-embers {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.intro-ember {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f97316, #ea580c);
+  filter: blur(0.5px);
+  opacity: 0;
+  animation: emberFloat linear infinite;
+}
+
+.intro-ember:nth-child(1) { width: 4px; height: 4px; left: 15%; bottom: -10px; animation-duration: 4s; animation-delay: 0.3s; }
+.intro-ember:nth-child(2) { width: 3px; height: 3px; left: 30%; bottom: -10px; animation-duration: 3.5s; animation-delay: 0.8s; }
+.intro-ember:nth-child(3) { width: 5px; height: 5px; left: 45%; bottom: -10px; animation-duration: 5s; animation-delay: 0.1s; }
+.intro-ember:nth-child(4) { width: 3px; height: 3px; left: 60%; bottom: -10px; animation-duration: 4.2s; animation-delay: 1.2s; }
+.intro-ember:nth-child(5) { width: 4px; height: 4px; left: 75%; bottom: -10px; animation-duration: 3.8s; animation-delay: 0.6s; }
+.intro-ember:nth-child(6) { width: 2px; height: 2px; left: 85%; bottom: -10px; animation-duration: 4.5s; animation-delay: 1.5s; }
+.intro-ember:nth-child(7) { width: 3px; height: 3px; left: 25%; bottom: -10px; animation-duration: 3.2s; animation-delay: 2s; }
+.intro-ember:nth-child(8) { width: 4px; height: 4px; left: 55%; bottom: -10px; animation-duration: 4.8s; animation-delay: 0.5s; }
+.intro-ember:nth-child(9) { width: 2px; height: 2px; left: 70%; bottom: -10px; animation-duration: 3.6s; animation-delay: 1.8s; }
+.intro-ember:nth-child(10) { width: 3px; height: 3px; left: 40%; bottom: -10px; animation-duration: 4.4s; animation-delay: 0.9s; }
+.intro-ember:nth-child(11) { width: 2px; height: 2px; left: 10%; bottom: -10px; animation-duration: 5.2s; animation-delay: 1.1s; }
+.intro-ember:nth-child(12) { width: 4px; height: 4px; left: 90%; bottom: -10px; animation-duration: 3.9s; animation-delay: 0.4s; }
+
+/* Horizontal light sweep */
+.intro-light-sweep {
+  position: absolute;
+  top: 45%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.6), rgba(255, 255, 255, 0.8), rgba(249, 115, 22, 0.6), transparent);
+  z-index: 8;
+  animation: lightSweep 1.2s ease-in-out forwards;
+  animation-delay: 0.6s;
+  filter: blur(1px);
+  box-shadow: 0 0 30px 10px rgba(249, 115, 22, 0.15);
+}
+
+/* Main content wrapper */
 .intro-content {
   position: relative;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 0;
   text-align: center;
+  padding: 0 24px;
 }
 
-.intro-logo-ring {
-  width: 88px;
-  height: 88px;
-  border-radius: 999px;
-  border: 2px solid rgba(248, 113, 22, 0.4);
+/* Logo container with ring animation */
+.intro-logo-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.intro-logo-ring-outer {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 115, 22, 0);
+  animation: ringExpand 1.8s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.intro-logo-ring-inner {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 115, 22, 0);
+  animation: ringExpand 1.8s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.intro-logo-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 30% 0%, #f97316, #b91c1c 70%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 50%, #b91c1c 100%);
   box-shadow:
-    0 0 0 6px rgba(15, 23, 42, 0.8),
-    0 20px 40px rgba(0, 0, 0, 0.6);
-  animation: introLogoIn 0.9s cubic-bezier(0.2, 0.9, 0.25, 1.1) forwards;
-}
-
-.intro-logo-letter {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.intro-text-block {
-  animation: introTextIn 1s ease-out forwards;
-  animation-delay: 0.35s;
+    0 0 60px rgba(249, 115, 22, 0.4),
+    0 0 120px rgba(249, 115, 22, 0.15),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transform: translateY(8px);
+  transform: scale(0.3) rotate(-180deg);
+  animation: logoReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
 }
 
-.intro-tagline {
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
+.intro-logo-icon {
+  font-size: 2.6rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  line-height: 1;
+}
+
+/* Title block */
+.intro-title-block {
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.intro-est-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: rgba(249, 250, 251, 0.7);
-  margin-bottom: 0.4rem;
+  color: rgba(249, 115, 22, 0.9);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.2s;
 }
 
 .intro-title {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 800;
-  letter-spacing: 0.24em;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: titleReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.4s;
 }
 
-.intro-subtitle {
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
-  color: rgba(209, 213, 219, 0.9);
+.intro-title-accent {
+  display: block;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.7s;
 }
 
-.intro-divider {
+/* Ornamental divider */
+.intro-ornament {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 8px;
-  animation: introTextIn 0.9s ease-out forwards;
-  animation-delay: 0.7s;
+  gap: 12px;
+  margin: 20px 0 16px;
   opacity: 0;
-  transform: translateY(8px);
+  animation: slideReveal 0.8s ease-out forwards;
+  animation-delay: 2s;
 }
 
-.intro-line {
-  display: block;
+.intro-ornament-line {
   height: 1px;
-  width: 70px;
-  background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.9));
+  width: 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-.intro-line.right {
-  transform: scaleX(-1);
+.intro-ornament-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.8));
+  animation: lineGrow 1s ease-out forwards;
+  animation-delay: 2.2s;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
-.intro-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
+.intro-ornament-line.right::after {
+  background: linear-gradient(270deg, transparent, rgba(249, 115, 22, 0.8));
+  transform-origin: right;
+}
+
+.intro-ornament-diamond {
+  width: 8px;
+  height: 8px;
   background: #f97316;
-  box-shadow: 0 0 18px rgba(248, 113, 22, 0.9);
+  transform: rotate(45deg) scale(0);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.8);
+  animation: diamondReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 2.3s;
 }
 
-.intro-bottom-note {
-  margin-top: 0.35rem;
-  font-size: 0.75rem;
+/* Tagline */
+.intro-tagline {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: rgba(148, 163, 184, 0.9);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: rgba(148, 163, 184, 0.95);
-  animation: introTextIn 0.9s ease-out forwards;
-  animation-delay: 1s;
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(15px);
+  animation: slideReveal 0.8s ease-out forwards;
+  animation-delay: 2.4s;
 }
 
-@keyframes introLogoIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(10px);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.04) translateY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+/* Loading bar */
+.intro-loader {
+  position: absolute;
+  bottom: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 15;
 }
 
-@keyframes introTextIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.intro-loader-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.6);
+  opacity: 0;
+  animation: slideReveal 0.6s ease-out forwards;
+  animation-delay: 2.6s;
+}
+
+.intro-loader-bar {
+  width: 120px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: slideReveal 0.6s ease-out forwards;
+  animation-delay: 2.6s;
+}
+
+.intro-loader-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f97316, #fbbf24);
+  border-radius: 2px;
+  animation: loaderFill 1.4s ease-in-out forwards;
+  animation-delay: 2.8s;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes introBgReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes introGrainDrift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-5%, -5%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes letterboxSlideIn {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes introGlowReveal {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes introGlowPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.75;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 1;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
-@keyframes introFadeOut {
-  0% {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  100% {
-    opacity: 0;
-    pointer-events: none;
-  }
+@keyframes emberFloat {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { opacity: 0.6; transform: translateY(-45vh) translateX(20px) scale(0.8); }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(-100vh) translateX(-10px) scale(0.3); opacity: 0; }
+}
+
+@keyframes lightSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+@keyframes logoReveal {
+  0% { opacity: 0; transform: scale(0.3) rotate(-180deg); }
+  60% { opacity: 1; transform: scale(1.08) rotate(8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes ringExpand {
+  0% { opacity: 0; transform: scale(0.8); border-color: rgba(249, 115, 22, 0); }
+  50% { opacity: 1; border-color: rgba(249, 115, 22, 0.4); }
+  100% { opacity: 0; transform: scale(1.5); border-color: rgba(249, 115, 22, 0); }
+}
+
+@keyframes slideReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titleReveal {
+  0% { opacity: 0; transform: translateY(40px); filter: blur(8px); }
+  60% { filter: blur(0px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes diamondReveal {
+  from { transform: rotate(45deg) scale(0); }
+  to { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes loaderFill {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes introFinalExit {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1.1); pointer-events: none; }
 }
 
 /* Global page & section animations */
