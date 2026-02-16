@@ -8,7 +8,7 @@ const Royalty = () => {
       <div className="bg-orange-600 text-white rounded-2xl w-full max-w-4xl flex flex-col items-center justify-center px-6 sm:px-10 py-10 sm:py-12 mx-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-center">Join the Royalty</h1>
         <p className="text-center mt-4 text-base sm:text-lg">
-          Love our food? Bring "The King Chaap" to your city. <br />
+          Love our food? Bring "The King Soya Chaap" to your city. <br />
           We're looking for passionate partners to expand our street food
           empire.
         </p>

@@ -51,11 +51,11 @@ const App = () => {
             </div>
 
             {/* Established badge */}
-            <div className="intro-est-badge">EST. 2012 • NEW DELHI</div>
+              <div className="intro-est-badge">EST. 2012 • LUCKNOW</div>
 
-            {/* Title */}
-            <div className="intro-title-block">
-              <h1 className="intro-title">THE KING CHAAP</h1>
+              {/* Title */}
+              <div className="intro-title-block">
+                <h1 className="intro-title">THE KING SOYA CHAAP</h1>
               <span className="intro-title-accent">Pure Veg • Soya Chaap</span>
             </div>
 

@@ -40,7 +40,7 @@ const Featured = () => {
         <div>
           <h1 className="text-4xl font-bold text-black">The Royal Menu</h1>
           <h4 className="text-lg text-gray-700">
-            Our most ordered and loved delicacies from the heart of Delhi.
+            Our most ordered and loved delicacies from the heart of Lucknow.
           </h4>
         </div>
         <Link

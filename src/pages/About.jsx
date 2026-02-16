@@ -26,7 +26,7 @@ const About = () => {
                 DISCOVER OUR ROOTS
               </h3>
               <span className="rounded-full bg-orange-100 px-3 py-1 text-[10px] sm:text-xs font-semibold text-orange-700">
-                ESTD 2012 • DELHI
+                ESTD 2012 • LUCKNOW
               </span>
             </div>
 
@@ -43,7 +43,7 @@ const About = () => {
               hand-ground masalas, and queues that kept getting longer every week.
             </p>
             <p className="mb-3 font-light text-sm sm:text-base text-gray-700">
-              Today, <span className="font-semibold">The King Chaap</span> is where Delhi comes when it wants
+              Today, <span className="font-semibold">The King Soya Chaap</span> is where Lucknow comes when it wants
               food that feels nostalgic and exciting at the same time. Every stick
               of chaap still goes through the same ritual: slow marination,
               charcoal-fired grills, and a final toss in our closely guarded
@@ -81,8 +81,62 @@ const About = () => {
         </div>
       </section>
 
+    {/* ── Owner's Insights ── */}
+      <section className="px-4 sm:px-6 lg:px-14 py-14 section-fade-up">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg border border-orange-50 overflow-hidden flex flex-col md:flex-row">
+            {/* Photo side */}
+            <div className="relative md:w-2/5 min-h-[320px]">
+              <img
+                src="/Ashish.jpeg"
+                alt="Ashish - Founder"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-5 md:p-6">
+                <h3 className="text-white text-lg font-bold leading-tight">
+                  Ashish
+                </h3>
+                <p className="text-orange-300 text-xs font-semibold tracking-wider uppercase">
+                  Founder & Head Chef
+                </p>
+              </div>
+            </div>
+
+            {/* Content side */}
+            <div className="md:w-3/5 p-6 sm:p-8 flex flex-col justify-center gap-4">
+              <span className="text-xs font-semibold tracking-[0.2em] text-orange-600 uppercase">
+                From the Owner's Kitchen
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
+                "Every stick of chaap carries a piece of my story."
+              </h2>
+              <p className="text-sm sm:text-base text-gray-700 font-light">
+                When I started The King Soya Chaap in 2012, it wasn't just about
+                business — it was about proving that street food can be
+                world-class without losing its soul. I still taste every new
+                batch of masala myself, still stand by the tandoor on weekends,
+                and still get a rush when a first-timer says{" "}
+                <span className="font-semibold">"this is the best chaap I've ever had."</span>
+              </p>
+              <p className="text-sm sm:text-base text-gray-700 font-light">
+                My promise is simple: we'll never cut corners, never swap fresh
+                for frozen, and never stop experimenting. The day we stop
+                getting better is the day we don't deserve the crown.
+              </p>
+              <div className="flex items-center gap-3 mt-2">
+                <div className="h-px flex-1 bg-orange-200" />
+                <span className="text-xs text-orange-600 font-semibold tracking-wider whitespace-nowrap">
+                  ESTD 2012 • LUCKNOW
+                </span>
+                <div className="h-px flex-1 bg-orange-200" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 sm:px-6 lg:px-14 pb-12 section-fade-up section-fade-up-delay">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-5 flex flex-col gap-2">
             <h3 className="text-sm font-semibold text-orange-600 uppercase tracking-[0.18em]">
               THE CRAFT
@@ -98,7 +152,7 @@ const About = () => {
               THE EXPERIENCE
             </h3>
             <p className="text-sm text-gray-700">
-              We bring the chaos of Delhi&apos;s best food lanes into a space that&apos;s
+              We bring the chaos of Lucknow&apos;s best food lanes into a space that&apos;s
               clean, cozy, and family-friendly—no compromise on vibe.
             </p>
           </div>

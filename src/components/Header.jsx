@@ -20,7 +20,7 @@ const Header = () => {
                     <Utensils className="bg-orange-600 text-white p-1 size-8 rounded-lg"/>
                     <Link to="/">
                         <h1 className='font-bold text-xl sm:text-2xl whitespace-nowrap'>
-                            THE KING CHAAP
+                            THE KING SOYA CHAAP
                         </h1>
                     </Link>
                 </div>

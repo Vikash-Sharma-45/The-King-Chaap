@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <Utensils className="bg-orange-600 text-white p-1 size-8 rounded-lg" />
             <Link to="/">
-              <h1 className="font-bold text-black text-2xl">THE KING CHAAP</h1>
+              <h1 className="font-bold text-black text-2xl">THE KING SOYA CHAAP</h1>
             </Link>
           </div>
           <p>
@@ -62,15 +62,15 @@ const Footer = () => {
           <h1 className="font-bold text-black text-xl">Find Us</h1>
           <h4 className="mt-2">
             <MapPin className="size-5 inline-block mr-2 text-gray-600" />
-            123 Street Food Plaza, North Delhi, 11001
+            123 Street Food Plaza, Lucknow, 226021
           </h4>
           <a className="mt-2" href="tel:+918303671626">
             <Phone className="size-5 inline-block mr-2 text-gray-600" />
             +91 8303671626
           </a>
-          <a className="mt-2" href="mailto:info@thekingchaap.com">
+          <a className="mt-2" href="mailto:info@thekingsoyachaap.com">
             <Mail className="size-5 inline-block mr-2 text-gray-600" />
-            info@thekingchaap.com
+            info@thekingsoyachaap.com
           </a>
         </div>
 
@@ -87,7 +87,7 @@ const Footer = () => {
       </div>
       <div className="w-full max-w-6xl mx-auto px-4 py-2 mt-6">
         <p className="text-center">
-          © 2024 The King Chaap. All rights reserved.
+          © 2024 The King Soya Chaap. All rights reserved.
         </p>
       </div>
     </section>
